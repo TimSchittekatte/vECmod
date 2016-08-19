@@ -18,7 +18,7 @@ model.v=Var(bounds=(1,2))
 model.sub.y=Var(bounds=(1,2))
 model.sub.w=Var(bounds=(-1,1))
 model.sub.tim=Var(bounds(0,10))
-model.sub=ilan=Var(bounds(-5,5))
+model.sub.ilan=Var(bounds(-5,5))
 
 model.o=Objective(expr=model.x +model.sub.y+model.v)
 model.c=Constraint(expr=model.x+model.x >= 1.5)
@@ -26,7 +26,7 @@ model.c=Constraint(expr=model.x+model.x >= 1.5)
 # adding a constraint to the problem
 model.sub.o=Objective(expr=model.x+model.sub.w+model.sub.tim, sense=maximize)
 model.sub.c=Constraint(expr=model.sub.y+ model.sub.w <=2.5)
-model.sub.con=Constraint(expr=model.sub.w+ model.sub.ilan <=8)  #chekc this out.
+model.sub.con=Constraint(expr=model.sub.w+ model.sub.l <=8)  #chekc this out.
 
 xfrm= TransformationFactory('bilevel.linear_mpec')
 xfrm.apply_to(model)
